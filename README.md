@@ -1,5 +1,5 @@
 <div align='center'>
-<h1>Pass@k Training for Adptively Balancing Eplortion and Exploitation of LRMs</h1>
+<h1>Pass@k Training for Adptively Balancing<br>Eplortion and Exploitation of LRMs</h1>
 
 
 <sup>1</sup>Renmin University of China, <sup>2</sup>ByteDance Seed
@@ -22,11 +22,13 @@ Regarding the prior work, although Pass@k has been used in evaluation, its conne
 
 # Pass@k Training
 
-Given the question $x$, the policy model is utilized to rollout the $k$ responses through a specific decoding strategy or searching algorithm (\eg sampling-based decoding strategy or Monte Carlo Tree Search). The $i$-th sampled response $\hat{y}_i$ will receive a reward $R_i$, which is provided by the verifier. Based on this, the value of the Pass@k metric is defined as the expected maximum reward obtained from the KKK sampled responses. Formally, the Pass@k metric can be computed using the following equation,
+Given the question $x$, the policy model is utilized to rollout the $k$ responses through a specific decoding strategy or searching algorithm (e.g., sampling-based decoding strategy or Monte Carlo Tree Search). The $i$-th sampled response $\hat{y}\_i$ will receive a reward $R\_i$, which is provided by the verifier. Based on this, the value of the Pass@k metric is defined as the expected maximum reward obtained from the $k$ sampled responses. Formally, the Pass@k metric can be computed using the following equation,
+
 $$
-    \text{Pass@k} = \mathbb{E}_{(x,y)\sim D,\{\hat{y}_i\}_{i=1}^K\sim \pi_\theta(\cdot|x)}\left[\max\left(R_1, \dots, R_K)\right)\right].
+\text{Pass@k} = \mathbb{E}\_{(x,y)\sim D,\\{\hat{y}\_i\\}\_{i=1}^K\sim \pi\_\theta(\cdot|x)}\left[\max\left(R\_1, \dots, R\_K)\right)\right].
 $$
-The Pass@k metric are utilize as the reward function in the RLVR training process. 
+
+The Pass@k metric is utilized as the reward function in the RLVR training process. 
 
 The implementation details of **Pass@k Training with Analytical Derivation** can be found in [`passk_adv.py`](), which is utilized to compute the advantage values of each response and adapted to the verl framework.
 
@@ -37,7 +39,7 @@ The implementation details of **Pass@k Training with Analytical Derivation** can
 
 + Compared to Pass@1 training, **Pass@k training significantly enhances the exploration ability of LLMs, improving Pass@k performance while maintaining Pass@1**. Among its three progressive variants, bootstrap sampling offers higher training efficiency than full sampling, and analytical derivation serves as its theoretical asymptotic form that mitigates the variance introduced by sampling.
 
-+ Compared to baseline methods, Pass@k training is both robust to different values of K and generalizable across domains and tasks. **The enhancement of LLM exploration ability is helpful to improve their exploitation through continual training**, leading 7B LLM to surpass the powerful LLMs (\eg GPT-4o and Claude-3.7), highlighting the practical value of Pass@k training.
++ Compared to baseline methods, Pass@k training is both robust to different values of K and generalizable across domains and tasks. **The enhancement of LLM exploration ability is helpful to improve their exploitation through continual training**, leading 7B LLM to surpass the powerful LLMs (e.g., GPT-4o and Claude-3.7), highlighting the practical value of Pass@k training.
 
 + Pass@k training with analytical derivation, which directly designs the advantage function, can be viewed as a form of implicit reward design. Following this idea, empirical experiments suggest that **implicit reward design allows finer-grained control over optimization**, such as focusing on harder problems or improving training efficiency, without complex theoretical derivations, making it a promising direction for future RLVR development.
 
