@@ -53,7 +53,7 @@ The benefits brought by Pass@k training can be transferred to Pass@1 performance
 # Acknowledgement
 We sincerely thank the [verl](https://github.com/volcengine/verl) for providing the awesome open-source RL infrastructure.
 
-We sincerely thank Jiangjie Chen et al. to provide the training and test sets of Enigmata and share experiences of RLVR training on logic puzzles. We appreciate Songhua Cai and other contributors of the Seed Infrastructure team for infrastructure support.
+We sincerely thank Enigmata Team to provide the training and test sets of Enigmata and share experiences of RLVR training on logic puzzles. We appreciate Songhua Cai and other contributors of the Seed Infrastructure team for infrastructure support.
 
 # Reference
 
