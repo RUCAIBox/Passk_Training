@@ -31,19 +31,11 @@ $$
 The Pass@k metric is utilized as the reward function in the RLVR training process. To improve the effectiveness and efficiency of the Pass@k Training process, we compute the analytical solution of the advantage value of positive responses as follows,
 
 $$
-\bar{R}^{\text{group}}=1-\frac{\binom{N\_\text{neg}}{k}}{\binom{N\_\text{rollout}}{k}}
+\bar{R}^{\text{group}}=1-\frac{\binom{N\_\text{neg}}{k}}{\binom{N\_\text{rollout}}{k}}, \sigma^\text{group}=\sqrt{\bar{R}^\text{group}\times\left(1-\bar{R}^\text{group}\right)},
 $$
 
 $$
-\sigma^\text{group}=\sqrt{\bar{R}^\text{group}\times\left(1-\bar{R}^\text{group}\right)},
-$$
-
-$$
-\hat{A}\_{\text{pos}}=\frac{1-\bar{R}^{\text{group}}}{\sigma^{\text{group}}}
-$$
-
-$$
-\hat{A}\_{\text{neg}}=\left(1-\bar{R}^\text{group}-\frac{\binom{N\_\text{neg}-1}{k-1}}{\binom{N\_\text{rollout}-1}{k-1}}\right)\times\left(\sigma^\text{group}\right)^{-1}.
+\hat{A}\_{\text{pos}}=\frac{1-\bar{R}^{\text{group}}}{\sigma^{\text{group}}}, \hat{A}\_{\text{neg}}=\left(1-\bar{R}^\text{group}-\frac{\binom{N\_\text{neg}-1}{k-1}}{\binom{N\_\text{rollout}-1}{k-1}}\right)\times\left(\sigma^\text{group}\right)^{-1}.
 $$
 
 The implementation details of **Pass@k Training with Analytical Derivation** can be found in [`code/passk_adv.py`](code/passk_adv.py), which is utilized to compute the advantage values of each response and adapted to the verl framework.
