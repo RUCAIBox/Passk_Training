@@ -25,12 +25,19 @@ Regarding the prior work, although Pass@k has been used in evaluation, its conne
 Given the question $x$, the policy model is utilized to rollout the $k$ responses through a specific decoding strategy or searching algorithm (e.g., sampling-based decoding strategy or Monte Carlo Tree Search). The $i$-th sampled response $\hat{y}\_i$ will receive a reward $R\_i$, which is provided by the verifier. Based on this, the value of the Pass@k metric is defined as the expected maximum reward obtained from the $k$ sampled responses. Formally, the Pass@k metric can be computed using the following equation,
 
 $$
-\text{Pass@k} = \mathbb{E}\_{(x,y)\sim D,\\{\hat{y}\_i\\}\_{i=1}^K\sim \pi\_\theta(\cdot|x)}\left[\max\left(R\_1, \dots, R\_K)\right)\right].
+\text{Pass@k} = \mathbb{E}_{(x,y)\sim D,\{\hat{y}_i\}_{i=1}^K\sim \pi\_\theta(\cdot|x)}\left[\max\left(R_1, \dots, R_K)\right)\right].
 $$
 
-The Pass@k metric is utilized as the reward function in the RLVR training process. 
+The Pass@k metric is utilized as the reward function in the RLVR training process. To improve the effectiveness and efficiency of Pass@k Training process, we compute the analytical solution of the advantage value of positive responses $\hat{A}_{\text{pos}}$ and negative responses $\hat{A}_{\text{neg}}$, respectively.
+$$
+\bar{R}^\text{group}=1-\frac{\binom{N_\text{neg}}{k}}{\binom{N_\text{rollout}}{k}},~~\sigma^\text{group}=\sqrt{\bar{R}^\text{group}\times\left(1-\bar{R}^\text{group}\right)}.
+$$
+$$
+\hat{A}_{\text{pos}}=\frac{1-\bar{R}^{\text{group}}}{\sigma^{\text{group}}},~~\hat{A}_{\text{neg}}=\left(1-\bar{R}^\text{group}-\frac{\binom{N_\text{neg}-1}{k-1}}{\binom{N_\text{rollout}-1}{k-1}}\right)\times\left(\sigma^\text{group}\right)^{-1}.
+$$
 
-The implementation details of **Pass@k Training with Analytical Derivation** can be found in [`passk_adv.py`](), which is utilized to compute the advantage values of each response and adapted to the verl framework.
+The implementation details of **Pass@k Training with Analytical Derivation** can be found in [`code/passk_adv.py`](code/passk_adv.py), which is utilized to compute the advantage values of each response and adapted to the verl framework.
+Besides, the code of the verifier of Maze tasks can be found in [`code/maze_verifier.py`](code/maze_verifier.py).
 
 ![](./figures/framework.jpg)
 
