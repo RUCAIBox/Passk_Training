@@ -8,7 +8,7 @@
 [![Paper](https://img.shields.io/badge/paper-5f16a8?style=for-the-badge&logo=arxiv&logoColor=white)](xxx)
 [![Blog](https://img.shields.io/badge/Code-3858bf?style=for-the-badge&logo=github
 )](https://github.com/RUCAIBox/Passk_Training)
-[![Dataset](https://img.shields.io/badge/Datasets-4d8cd8?style=for-the-badge&logo=huggingface&logoColor=white)](xxx)
+[![Dataset](https://img.shields.io/badge/Datasets-4d8cd8?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/RUC-AIBOX/Passk_Training_Maze)
 </div>
 
 # Introduction
