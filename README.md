@@ -2,12 +2,9 @@
 <h1>Pass@k Training for Adptively Balancing<br>Eplortion and Exploitation of LRMs</h1>
 
 
-<sup>1</sup>Renmin University of China, <sup>2</sup>ByteDance Seed
-
 <!-- TODO:  Thread,Paper,Dataset,Weights-->
 [![Paper](https://img.shields.io/badge/paper-5f16a8?style=for-the-badge&logo=arxiv&logoColor=white)](xxx)
-[![Blog](https://img.shields.io/badge/Code-3858bf?style=for-the-badge&logo=github
-)](https://github.com/RUCAIBox/Passk_Training)
+[![Blog](https://img.shields.io/badge/Code-3858bf?style=for-the-badge&logo=github)](https://github.com/RUCAIBox/Passk_Training/tree/main/code)
 [![Dataset](https://img.shields.io/badge/Datasets-4d8cd8?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/RUC-AIBOX/Passk_Training_Maze)
 </div>
 
@@ -17,8 +14,10 @@ Reinforcement Learning with Verifiable Rewards (RLVR), which typically adopts Pa
 
 Regarding the prior work, although Pass@k has been used in evaluation, its connection to LLM exploration ability remains largely overlooked. To investigate this, we first utilize Pass@k as the reward to train the policy model (i.e., **Pass@k training**), and observe the improvement on its exploration ability. Next, we derive an analytical solution for the advantage of Pass@k training, leading to an efficient and effective process. Building on this, our analysis reveals that exploration and exploitation are not inherently conflicting objectives, while they can mutually enhance each other. Moreover, Pass@k training with analytical derivation essentially involves directly designing the advantage function. Inspired by this, we initially explore the advantage design for RLVR, showing promising results and highlighting a potential future direction.
 
+<div align='center'>
 
 ![](./figures/overview.jpg)
+</div>
 
 # Pass@k Training
 
@@ -41,7 +40,10 @@ $$
 The implementation details of **Pass@k Training with Analytical Derivation** can be found in [`code/passk_adv.py`](code/passk_adv.py), which is utilized to compute the advantage values of each response and adapted to the verl framework.
 Besides, the code of the verifier of Maze tasks can be found in [`code/maze_verifier.py`](code/maze_verifier.py).
 
+<div align='center'>
+
 ![](./figures/framework.jpg)
+</div>
 
 
 # Key Insights
@@ -56,7 +58,10 @@ Besides, the code of the verifier of Maze tasks can be found in [`code/maze_veri
 
 The benefits brought by Pass@k training can be transferred to Pass@1 performance of LLMs, which is not affected by the scale of model parameters (e.g., 7B or 32B), model architecture (e.g, dense model or MoE model), model family (i.e., Qwen model or Seed model), or downstream tasks (natural language tasks or multi-modal tasks).
 
+<div align='center'>
+
 ![](./figures/main_results.jpg)
+</div>
 
 
 # Acknowledgement
