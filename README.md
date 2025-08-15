@@ -3,7 +3,7 @@
 
 
 <!-- TODO:  Thread,Paper,Dataset,Weights-->
-[![Paper](https://img.shields.io/badge/paper-5f16a8?style=for-the-badge&logo=arxiv&logoColor=white)](xxx)
+[![Paper](https://img.shields.io/badge/paper-5f16a8?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2508.10751)
 [![Blog](https://img.shields.io/badge/Code-3858bf?style=for-the-badge&logo=github)](https://github.com/RUCAIBox/Passk_Training/tree/main/code)
 [![Dataset](https://img.shields.io/badge/Datasets-4d8cd8?style=for-the-badge&logo=huggingface&logoColor=white)](https://huggingface.co/datasets/RUC-AIBOX/Passk_Training_Maze)
 </div>
@@ -72,7 +72,7 @@ Please kindly cite our report if it is helpful for your research.
 @article{Passk_Training,
   title={Pass@k Training for Adaptively Balancing Exploration and Exploitation of Large Reasoning Models},
   author={Chen, Zhipeng and Qin, Xiaobo and Wu, Youbin and Ling, Yue and Ye, Qinghao and Zhao, Wayne Xin and Shi, Guang},
-  journal={arXiv preprint arXiv:xxx},
+  journal={arXiv preprint arXiv:2508.10751},
   year={2025}
 }
 ```
